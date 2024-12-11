@@ -1,0 +1,47 @@
+.scrollContainer {
+  position: relative;
+  height: 12rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.scrollImage {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.scrollImage.animate {
+  animation: scrollAnimation 20s linear infinite;
+}
+
+.scrollImage.animate:hover {
+  animation-play-state: paused;
+}
+
+.downloadOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.scrollContainer:hover .downloadOverlay {
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+
+@keyframes scrollAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-100% + 12rem));
+  }
+}
